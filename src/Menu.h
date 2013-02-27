@@ -27,8 +27,8 @@ class Menu : public simpleWindow
         void update();
 
 
-            myTuioClient * tuioClient;
-	void	setTuioClient (myTuioClient * _tuioClient);
+            ofxTuioClient * tuioClient;
+	void	setTuioClient (ofxTuioClient * _tuioClient);
 
 	void	tuioAdded(ofxTuioCursor & tuioCursor);
 	void	tuioRemoved(ofxTuioCursor & tuioCursor);

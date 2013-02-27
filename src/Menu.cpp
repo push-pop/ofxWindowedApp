@@ -80,7 +80,7 @@ void Menu::drawMenuItems(){
 }
 
 
-void Menu::setTuioClient (myTuioClient * _tuioClient){
+void Menu::setTuioClient (ofxTuioClient * _tuioClient){
 	tuioClient = _tuioClient;
 	//Sets client for surrounding window
 	simpleWindow::setTuioClient(tuioClient);

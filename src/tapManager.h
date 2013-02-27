@@ -2,7 +2,6 @@
 #define TAPMANAGER_H
 
 #include "stddef.h"
-#include "testApp.h"
 
 #include "ofxTuio.h"
 class tapManager

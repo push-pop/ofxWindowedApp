@@ -200,7 +200,7 @@ void simpleWindow::drawBackground(){
 
     }
 
-void simpleWindow::setTuioClient (myTuioClient * _tuioClient){
+void simpleWindow::setTuioClient (ofxTuioClient * _tuioClient){
 	tuioClient = _tuioClient;
 
 	// HELP with this in order to be independent from the main.

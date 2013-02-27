@@ -13,7 +13,7 @@ void WindowedApp::beginDraw(){
 }
 void WindowedApp::endDraw(){ofPopMatrix();}
 
-void WindowedApp::setTuioClient (myTuioClient * _tuioClient){
+void WindowedApp::setTuioClient (ofxTuioClient * _tuioClient){
 	tuioClient = _tuioClient;
 	//Sets client for surrounding window
 	simpleWindow::setTuioClient(tuioClient);

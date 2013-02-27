@@ -43,7 +43,7 @@ void winApp::draw() {
 }
 
 
-void winApp::setTuioClient (myTuioClient * _tuioClient){
+void winApp::setTuioClient (ofxTuioClient * _tuioClient){
 	tuioClient = _tuioClient;
 	//Sets client for surrounding window
 	WindowedApp::setTuioClient(tuioClient);
