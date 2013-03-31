@@ -12,6 +12,7 @@ class Menu : public simpleWindow
 {
     public:
         Menu();
+        Menu(ofPoint point);
         ~Menu();
 
         void addMenuItem(char* label);
@@ -40,6 +41,7 @@ class Menu : public simpleWindow
 
 
         void drawMenuItems();
+        void checkMenuItems();
 
 
     private:
@@ -56,7 +58,8 @@ class Menu : public simpleWindow
         float itemHeight;
 
         ofColor mBackgroundColor;
-
+        ofTrueTypeFont mFont;
+        int mFontSize = 20;
 
         static const int DEFAULT_HEIGHT = 500;
         static const int DEFAULT_WIDTH = 700;

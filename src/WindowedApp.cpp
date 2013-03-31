@@ -14,13 +14,13 @@ void WindowedApp::beginDraw(){
 void WindowedApp::endDraw(){ofPopMatrix();}
 
 void WindowedApp::setTuioClient (ofxTuioClient * _tuioClient){
-	tuioClient = _tuioClient;
+	//tuioClient = _tuioClient;
 	//Sets client for surrounding window
-	simpleWindow::setTuioClient(tuioClient);
+	//simpleWindow::setTuioClient(tuioClient);
 	//Sets listener for menu items.
-	ofAddListener(tuioClient->cursorAdded,this,&WindowedApp::tuioAdded);
-	ofAddListener(tuioClient->cursorRemoved,this,&WindowedApp::tuioRemoved);
-	ofAddListener(tuioClient->cursorUpdated,this,&WindowedApp::tuioUpdated);
+	//ofAddListener(tuioClient->cursorAdded,this,&WindowedApp::tuioAdded);
+	//ofAddListener(tuioClient->cursorRemoved,this,&WindowedApp::tuioRemoved);
+	//ofAddListener(tuioClient->cursorUpdated,this,&WindowedApp::tuioUpdated);
 }
 
 

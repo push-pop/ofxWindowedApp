@@ -22,6 +22,7 @@ class MenuItem : public simpleWindow
         void draw();
 
         string mLabel;
+    ofxTuioClient *mTuioClient;
 
 
     protected:

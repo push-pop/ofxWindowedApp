@@ -14,16 +14,18 @@ class simpleWindow
     public:
         simpleWindow();
         simpleWindow(ofPoint topLeft);
-        ~simpleWindow();
+        virtual ~simpleWindow();
 
-        void setPosition(int _x, int _y);
+        void setPosition(float _x, float _y);
         void setPosition(ofPoint topLeft);
         void setSize(float height, float width);
-        void update();
-        void draw();
-
+        virtual void update();
+        virtual void draw();
+        virtual void setup(){};
+        void setWindowID(int id);
+        bool containsPoint(ofPoint point);
         void setBackgroundColor(ofColor mBackgroundColor);
-
+        void	setTuioClient (ofxTuioClient * _tuioClient);
         ofPoint toLocalAxisSystem(ofPoint point);
 
 
@@ -31,15 +33,16 @@ class simpleWindow
 
 
         ofPoint toGlobalAxisSystem(ofPoint point);
+        void	tuioAdded(ofxTuioCursor & tuioCursor);
+        void	tuioRemoved(ofxTuioCursor & tuioCursor);
+        void	tuioUpdated(ofxTuioCursor & tuioCursor);
 
-
-
-
+        ofPoint mTopLeft;
 
     protected:
         ofPoint lastGrabbed;
         ofPoint lastPosition;
-        ofPoint mTopLeft;
+
 
         float windowHeight;
         float windowWidth;
@@ -52,16 +55,17 @@ class simpleWindow
         float lastAngle;
 
         ofxTuioClient * tuioClient;
-        void	setTuioClient (ofxTuioClient * _tuioClient);
 
-        void	tuioAdded(ofxTuioCursor & tuioCursor);
-        void	tuioRemoved(ofxTuioCursor & tuioCursor);
-        void	tuioUpdated(ofxTuioCursor & tuioCursor);
 
+        struct activeCursor{
+            ofPoint cursorLoc;
+            int fingerID;
+        };
+        vector <activeCursor> activeCursors;
         vector <ofxTuioCursor*> grabbingCursors;
     private:
 
-
+        int windowID;
         void drawBackground();
         void drawGrabbedPoints();
         void drawAxis();

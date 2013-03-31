@@ -2,11 +2,12 @@
 #define WINDOWEDAPP_H
 
 #include "Window.h"
+#include "ofxTuio.h"
 class WindowedApp : public simpleWindow
 {
     public:
-        WindowedApp() : simpleWindow() {}
-        virtual ~WindowedApp() {}
+      WindowedApp(){};
+      virtual ~WindowedApp(){};
 
 
 

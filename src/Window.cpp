@@ -23,7 +23,7 @@ simpleWindow::~simpleWindow(){
     //dtor
 }
 
-void simpleWindow::setPosition(int _x, int _y){
+void simpleWindow::setPosition(float _x, float _y){
 
     mTopLeft = ofPoint(_x, _y);
 
@@ -210,6 +210,7 @@ void simpleWindow::setTuioClient (ofxTuioClient * _tuioClient){
 }
 
 void simpleWindow::tuioAdded(ofxTuioCursor &tuioCursor){
+cout << "here" << endl;
     ofPoint addedCursor(tuioCursor.getX()*ofGetWidth(), tuioCursor.getY()*ofGetHeight());
 
     if (isOverTopLeft(addedCursor) && grabbingCursors.size() == 0){
@@ -222,17 +223,28 @@ void simpleWindow::tuioAdded(ofxTuioCursor &tuioCursor){
         lastScale = ofDist(0, 0, line.x, line.y);
         grabbingCursors.push_back(&tuioCursor);
         }
+        else if(containsPoint(addedCursor))
+        {
+            activeCursor toAdd;
+            toAdd.fingerID = tuioCursor.getFingerId();
+            toAdd.cursorLoc = toLocalAxisSystem(addedCursor);
+            cout << "added active cursor at (local) " << toLocalAxisSystem(addedCursor);
+            activeCursors.push_back(toAdd);
 
-
+        }
 }
+
+
+
 void simpleWindow::tuioUpdated(ofxTuioCursor &tuioCursor){
+
 
 
 }
 void simpleWindow::tuioRemoved(ofxTuioCursor &tuioCursor){
 
 
-        //If this cursor was a part of the menu, remove it from the vector
+    //If this cursor was a part of the menu, remove it from the vector
     for(int i = 0; i < grabbingCursors.size(); i++)
     {
 
@@ -241,4 +253,24 @@ void simpleWindow::tuioRemoved(ofxTuioCursor &tuioCursor){
             grabbingCursors.erase(grabbingCursors.begin() + i);
         }
     }
+        for(int i = 0; i < activeCursors.size(); i++)
+    {
+
+        if (activeCursors[i].fingerID == tuioCursor.getFingerId()){
+            cout << "removing cursor " << i <<  endl;
+            activeCursors.erase(activeCursors.begin() + i);
+        }
+    }
+
+}
+
+bool simpleWindow::containsPoint(ofPoint point){
+    return(point.x > mTopLeft.x - 20
+           && point.x < mTopLeft.x + windowWidth + 20
+           && point.y > mTopLeft.y - 20
+           && point.y < mTopLeft.y + windowHeight + 20);
+}
+
+void simpleWindow::setWindowID(int id){
+    windowID = id;
 }
