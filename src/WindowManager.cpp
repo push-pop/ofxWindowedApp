@@ -1,6 +1,6 @@
 #include "WindowManager.h"
-#include "../../../apps/myApps/tuioPong/src/tuioPong.h"
-
+//#include "../../../apps/myApps/tuioPong/src/tuioPong.h"
+#include "winApp.h"
 void WindowManager::updateWindows()
 {
     for(int i = 0; i < mWindowedApps.size(); i++)
@@ -31,10 +31,14 @@ void WindowManager::addWindow(windowName nWindow, float x, float y)
     }
     case TUIO_PONG:
     {
-        tuioPong* newTuioPong = new tuioPong();
-        addWindow(newTuioPong, x, y);
+//        tuioPong* newTuioPong = new tuioPong();
+  //      addWindow(newTuioPong, x, y);
+  //      addWindow(newTuioPong, x, y);
         break;
     }
+    case WIN_APP:
+        winApp* newWinApp = new winApp();
+        addWindow(newWinApp, x, y);
     }
 
 }

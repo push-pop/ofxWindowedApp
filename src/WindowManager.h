@@ -15,6 +15,7 @@ public:
     {
         MENU,
         /* YOUR APPS HERE*/
+        WIN_APP,
         TUIO_PONG,
         DEMO_APP
     };
