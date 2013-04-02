@@ -1,0 +1,4 @@
+ofxOsc
+ofxTuio
+ofxWindowedApp
+ofxOpenCv
