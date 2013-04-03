@@ -19,10 +19,19 @@
 	<File name="../../../addons/ofxTuio/src/ofxTuioPoint.h" open="0" top="0" tabpos="4">
 		<Cursor position="0" topLine="43" />
 	</File>
+	<File name="src/main.cpp" open="1" top="0" tabpos="1">
+		<Cursor position="177" topLine="0" />
+	</File>
+	<File name="src/testApp.cpp" open="1" top="0" tabpos="2">
+		<Cursor position="262" topLine="9" />
+	</File>
+	<File name="src/testApp.h" open="0" top="0" tabpos="7">
+		<Cursor position="534" topLine="0" />
+	</File>
 	<File name="../../../addons/ofxWindowedApp/src/Menu.cpp" open="1" top="0" tabpos="8">
 		<Cursor position="2060" topLine="63" />
 	</File>
-	<File name="../../../addons/ofxWindowedApp/src/Menu.h" open="1" top="0" tabpos="9">
+	<File name="../../../addons/ofxWindowedApp/src/Menu.h" open="1" top="1" tabpos="9">
 		<Cursor position="903" topLine="33" />
 	</File>
 	<File name="../../../addons/ofxWindowedApp/src/MenuItem.cpp" open="1" top="0" tabpos="6">
@@ -60,14 +69,5 @@
 	</File>
 	<File name="../../../addons/ofxWindowedApp/src/winApp.h" open="0" top="0" tabpos="0">
 		<Cursor position="356" topLine="0" />
-	</File>
-	<File name="src/main.cpp" open="1" top="0" tabpos="1">
-		<Cursor position="177" topLine="0" />
-	</File>
-	<File name="src/testApp.cpp" open="1" top="0" tabpos="2">
-		<Cursor position="262" topLine="9" />
-	</File>
-	<File name="src/testApp.h" open="0" top="0" tabpos="7">
-		<Cursor position="534" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>

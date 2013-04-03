@@ -1,4 +1,0 @@
-ofxOsc
-ofxTuio
-ofxWindowedApp
-ofxOpenCv

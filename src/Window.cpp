@@ -248,7 +248,7 @@ void simpleWindow::tuioRemoved(ofxTuioCursor &tuioCursor){
     for(int i = 0; i < grabbingCursors.size(); i++)
     {
 
-        if (grabbingCursors[i] == &tuioCursor){
+        if (grabbingCursors[i]->getFingerId() == tuioCursor.getFingerId()){
 //            cout << "removing cursor " << i <<  endl;
             grabbingCursors.erase(grabbingCursors.begin() + i);
         }

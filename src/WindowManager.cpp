@@ -29,13 +29,6 @@ void WindowManager::addWindow(windowName nWindow, float x, float y)
         addWindow(newMenu, x, y);
         break;
     }
-    case TUIO_PONG:
-    {
-//        tuioPong* newTuioPong = new tuioPong();
-  //      addWindow(newTuioPong, x, y);
-  //      addWindow(newTuioPong, x, y);
-        break;
-    }
     case WIN_APP:
         winApp* newWinApp = new winApp();
         addWindow(newWinApp, x, y);
