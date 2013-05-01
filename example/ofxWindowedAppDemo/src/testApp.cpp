@@ -1,11 +1,21 @@
 #include "testApp.h"
 
-WindowManager mWindowManager;
 //--------------------------------------------------------------
 void testApp::setup(){
-mTuioClient.start(3333);
-mWindowManager.initialize(&mTuioClient);
-mWindowManager.addWindow(WindowManager::WIN_APP, 200, 200);
+    mTuioClient.start(3333);
+    mWindowManager.initialize(&mTuioClient);    // Setup Listeners
+    // Draw Menu
+    // Determine Selection
+    // Call windows with code below
+
+    //mWindowManager.addWindow(WindowManager::MENU, 300, 100); // Top left corner of app
+    mWindowManager.addWindow(WindowManager::SYMMETRY_APP, 300, 200); // Top left corner of app
+    //mWindowManager.addWindow(WindowManager::MULTI_PONG_APP, 500, 0); // Top left corner of app
+
+    //mWindowManager.addWindow(WindowManager::KEYBOARD_APP, 0, 0); // Top left corner of app
+    //mWindowManager.addWindow(WindowManager::QUIZ_APP, 300, 100); // Top left corner of app
+    //mWindowManager.addWindow(WindowManager::WIN_APP, 300, 100); // Top left corner of app
+    //mWindowManager.addWindow(WindowManager::NEWSFEED_APP, 300, 100); // Top left corner of app
 }
 
 //--------------------------------------------------------------
@@ -18,7 +28,6 @@ void testApp::update(){
 void testApp::draw(){
     mWindowManager.drawWindows();
     mTuioClient.drawCursors();
-
 }
 
 //--------------------------------------------------------------
