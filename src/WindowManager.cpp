@@ -1,39 +1,74 @@
 #include "WindowManager.h"
-//#include "../../../apps/myApps/tuioPong/src/tuioPong.h"
 #include "winApp.h"
+
+#include "src/fractalTree.h"
+#include "src/MultiPongApp.h"
+#include "src/KeyboardApp.h"
+#include "src/NewsFeedApp.h"
+#include "src/symmetry.h"
+
 void WindowManager::updateWindows()
 {
     for(int i = 0; i < mWindowedApps.size(); i++)
         mWindowedApps[i]->update();
-
 }
 
 void WindowManager::drawWindows()
 {
     for(int i = 0; i < mWindowedApps.size(); i++)
         mWindowedApps[i]->draw();
-
 }
 
 void WindowManager::addWindow(windowName nWindow, float x, float y)
 {
     switch (nWindow)
     {
-    case MENU:
-    {
-
-        Menu* newMenu = new Menu();
-        newMenu->addMenuItem("Launch Tuio Pong");
-        newMenu->addMenuItem("Launch Demo App");
-        newMenu->addMenuItem("Exit");
-        addWindow(newMenu, x, y);
-        break;
+        case MENU:
+        {
+            Menu* newMenu = new Menu();
+            newMenu->addMenuItem("Launch Tuio Pong");
+            newMenu->addMenuItem("Launch Demo App");
+            newMenu->addMenuItem("Exit");
+            addWindow(newMenu, x, y);
+            break;
+        }
+        case WIN_APP:
+        {
+            winApp* newWinApp = new winApp();
+            addWindow(newWinApp, x, y);
+            break;
+        }
+        case FRACTAL_TREE_APP:
+        {
+            FractalTreeApp* newFractalTreeApp = new FractalTreeApp();
+            addWindow(newFractalTreeApp, x, y);
+            break;
+        }
+        case MULTI_PONG_APP:
+        {
+            MultiPongApp* newMultiPongApp = new MultiPongApp();
+            addWindow(newMultiPongApp, x, y);
+            break;
+        }
+        case KEYBOARD_APP:
+        {
+            KeyboardApp* newKeyboardApp = new KeyboardApp();
+            addWindow(newKeyboardApp, x, y);
+            break;
+        }
+        case NEWSFEED_APP:
+        {
+            NewsFeedApp* newNewsFeedApp = new NewsFeedApp();
+            addWindow(newNewsFeedApp, x, y);
+            break;
+        }
+        case SYMMETRY_APP:
+        {
+            SymmetryApp* newSymmetryApp = new SymmetryApp();
+            addWindow(newSymmetryApp, x, y);
+            break;
+        }
     }
-    case WIN_APP:
-        winApp* newWinApp = new winApp();
-        addWindow(newWinApp, x, y);
-    }
-
 }
 
 void WindowManager::addWindow(simpleWindow* nWindow, float x, float y)
@@ -43,9 +78,7 @@ void WindowManager::addWindow(simpleWindow* nWindow, float x, float y)
     nWindow->setup();
     nWindow->setTuioClient(mTuioClient);
     nWindow->setPosition(x, y);
-
 }
-
 
 void WindowManager::initialize(ofxTuioClient *_tuioClient)
 {
@@ -60,22 +93,16 @@ void WindowManager::initialize(ofxTuioClient *_tuioClient)
 void WindowManager::tuioAdded(ofxTuioCursor & tuioCursor)
 {
     //cout << "Tuio Added!" << endl;
-
-
 }
 
 void WindowManager::tuioUpdated(ofxTuioCursor & tuioCursor)
 {
     //cout << "Tuio Updated!" << endl;
-
-
 }
 
 void WindowManager::tuioRemoved(ofxTuioCursor & tuioCursor)
 {
    // cout << "Tuio Removed!" << endl;
-
-
 }
 
 float WindowManager::distanceToClosestWindow(ofPoint point)

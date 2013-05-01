@@ -14,8 +14,6 @@ MenuItem::MenuItem(string _label, ofPoint topLeft) : simpleWindow(){
 
 }
 
-
-
 MenuItem::MenuItem(){}
 MenuItem::~MenuItem()
 {

@@ -4,8 +4,7 @@
 #include "ofxTuio.h"
 #include "WindowedApp.h"
 #include "Menu.h"
-
-
+#include "winApp.h"
 
 class WindowManager
 {
@@ -17,7 +16,13 @@ public:
         /* YOUR APPS HERE*/
         WIN_APP,
         TUIO_PONG,
-        DEMO_APP
+        DEMO_APP,
+        QUIZ_APP,
+        MULTI_PONG_APP,
+        KEYBOARD_APP,
+        NEWSFEED_APP,
+        FRACTAL_TREE_APP,
+        SYMMETRY_APP
     };
 
     void initialize(ofxTuioClient *_tuioClient);
@@ -29,7 +34,6 @@ public:
 
 protected:
     float distanceToClosestWindow(ofPoint point);
-
 
 private:
     ofxTuioClient *mTuioClient;

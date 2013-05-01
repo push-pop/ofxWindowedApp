@@ -10,13 +10,11 @@ Menu::Menu() : simpleWindow()
     lastAngle = 0.0;
     lastScale = 1.0;
     mFont.loadFont("verdana.ttf", mFontSize);
-
-
-    }
+}
 
 Menu::Menu(ofPoint point) : simpleWindow(point)
 {
-        windowHeight = DEFAULT_HEIGHT;
+    windowHeight = DEFAULT_HEIGHT;
     windowWidth = DEFAULT_WIDTH;
     setPosition(point.x, point.y);
     scale = 1.0;
@@ -25,8 +23,6 @@ Menu::Menu(ofPoint point) : simpleWindow(point)
     lastScale = 1.0;
     mFont.loadFont("veranda.ttf", mFontSize);
 }
-
-
 
 Menu::~Menu()
 {
@@ -37,8 +33,6 @@ Menu::~Menu()
     mMenuItems.clear();
 
 }
-
-
 
 void Menu::addMenuItem(char* label){
 
@@ -56,19 +50,14 @@ void Menu::addCursor(ofxTuioCursor *cursor){
 
 void Menu::update(){
     simpleWindow::update();
-
-
 }
 
 void Menu::draw(){
     simpleWindow::draw();
     drawMenuItems();
-
 }
 
-
 void Menu::drawMenuItems(){
-
 
     ofPushMatrix();
    ofTranslate(mTopLeft);
@@ -80,21 +69,20 @@ void Menu::drawMenuItems(){
     itemHeight = windowHeight/mMenuItems.size() - (mMenuItems.size()+1)*MARGIN;
     for(int i = 0; i < mMenuItems.size(); i++)
     {
-            ofSetColor(255,0,0,127);
+        ofSetColor(255,0,0,127);
         ofSetDrawBitmapMode(OF_BITMAPMODE_MODEL);
         ofRectMode(OF_RECTMODE_CORNER);
         ofRect(MARGIN*scale, (i+1)*MARGIN*scale + i*itemHeight, windowWidth - 2*MARGIN, itemHeight);
         ofSetColor(255,255,255, 255);
         mFont.loadFont("verdana.ttf", mFontSize*scale);
         mFont.drawString(mMenuItems[i]->mLabel, MARGIN*scale + TEXT_MARGIN, (i+1)*MARGIN*scale + i*itemHeight + 8*TEXT_MARGIN);
-
     }
     ofPopMatrix();
 }
 
 void Menu::checkMenuItems(){
     //for each menu item
-for(int i=0; i < mMenuItems.size() ; i++){
+    for(int i=0; i < mMenuItems.size(); i++){
     //check to see if it is selected
 /*    if(mMenuItems[i].isSelected)
     {
@@ -116,20 +104,13 @@ void Menu::setTuioClient (ofxTuioClient * _tuioClient){
 	//ofAddListener(tuioClient->cursorUpdated,this,&Menu::tuioUpdated);
 }
 
-
 void Menu::tuioAdded(ofxTuioCursor &tuioCursor){
 	//TODO: Check Menu Items
-
-
-
 }
 void Menu::tuioUpdated(ofxTuioCursor &tuioCursor){
 
-
 }
 void Menu::tuioRemoved(ofxTuioCursor &tuioCursor){
-
-
 
 }
 

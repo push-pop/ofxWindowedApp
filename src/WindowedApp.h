@@ -3,13 +3,12 @@
 
 #include "Window.h"
 #include "ofxTuio.h"
+
 class WindowedApp : public simpleWindow
 {
     public:
       WindowedApp(){};
       virtual ~WindowedApp(){};
-
-
 
         void setup();
         void update(){simpleWindow::update();};
@@ -20,8 +19,8 @@ class WindowedApp : public simpleWindow
         void beginDraw();
         void endDraw();
 
+    ofxTuioClient * tuioClient;
 
-            ofxTuioClient * tuioClient;
 	void	setTuioClient (ofxTuioClient * _tuioClient);
 
 	void	tuioAdded(ofxTuioCursor & tuioCursor);
@@ -30,6 +29,7 @@ class WindowedApp : public simpleWindow
 
     protected:
     private:
+
 };
 
 #endif // WINDOWEDAPP_H

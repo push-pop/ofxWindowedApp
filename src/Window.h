@@ -6,12 +6,10 @@
 #include "ofMain.h"
 #include "ofxTuio.h"
 
-
-
 class simpleWindow
 {
-
     public:
+
         simpleWindow();
         simpleWindow(ofPoint topLeft);
         virtual ~simpleWindow();
@@ -19,27 +17,33 @@ class simpleWindow
         void setPosition(float _x, float _y);
         void setPosition(ofPoint topLeft);
         void setSize(float height, float width);
-        virtual void update();
-        virtual void draw();
-        virtual void setup(){};
+
+            virtual void update();
+            virtual void draw();
+            virtual void setup(){};
+
         void setWindowID(int id);
         bool containsPoint(ofPoint point);
         void setBackgroundColor(ofColor mBackgroundColor);
-        void	setTuioClient (ofxTuioClient * _tuioClient);
+        virtual void setTuioClient (ofxTuioClient * _tuioClient);
+
         ofPoint toLocalAxisSystem(ofPoint point);
-
-
-
-
-
         ofPoint toGlobalAxisSystem(ofPoint point);
+
         void	tuioAdded(ofxTuioCursor & tuioCursor);
         void	tuioRemoved(ofxTuioCursor & tuioCursor);
         void	tuioUpdated(ofxTuioCursor & tuioCursor);
 
+        struct activeCursor{
+            ofPoint cursorLoc;
+            int fingerID;
+        };
+
         ofPoint mTopLeft;
 
+
     protected:
+
         ofPoint lastGrabbed;
         ofPoint lastPosition;
 
@@ -56,13 +60,9 @@ class simpleWindow
 
         ofxTuioClient * tuioClient;
 
-
-        struct activeCursor{
-            ofPoint cursorLoc;
-            int fingerID;
-        };
         vector <activeCursor> activeCursors;
         vector <ofxTuioCursor*> grabbingCursors;
+
     private:
 
         int windowID;
@@ -72,8 +72,6 @@ class simpleWindow
 
         bool isOverTopLeft(ofPoint point);
         bool isOverBottomRight(ofPoint point);
-
-
 
         void setGrabbed(bool grabbed, ofxTuioCursor &cursor);
 };

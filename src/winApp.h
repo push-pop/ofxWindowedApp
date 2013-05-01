@@ -2,28 +2,24 @@
 #define WINAPP_H
 
 #include "WindowedApp.h"
+
 class winApp : public WindowedApp
 {
     public:
 
-    ofPoint cirPos;
-    float xVel;
-    float yVel;
-    float radius;
-    ofColor color;
+    vector <ofxTuioCursor*> grabbingCursors;
 
+    void setup();
+    void update();
+    void draw();
 
-        void setup();
-        void update();
-        void draw();
+    ofxTuioClient * tuioClient;
 
-                    ofxTuioClient * tuioClient;
-	void	setTuioClient (ofxTuioClient * _tuioClient);
+	void    setTuioClient (ofxTuioClient * _tuioClient);
 
 	void	tuioAdded(ofxTuioCursor & tuioCursor);
 	void	tuioRemoved(ofxTuioCursor & tuioCursor);
 	void	tuioUpdated(ofxTuioCursor & tuioCursor);
-
 
     protected:
     private:
